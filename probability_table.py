@@ -1,6 +1,6 @@
 END = object()
 
-def probability_table(path_to_file: str='Bible_Crampon_1923_Genèse.txt') -> dict:
+def probability_table(path_to_file: str) -> dict:
     text = ''
 
     with open(path_to_file, 'r') as file:
