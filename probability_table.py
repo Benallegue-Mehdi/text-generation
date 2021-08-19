@@ -15,15 +15,9 @@ for pos, word in enumerate(words):
             words.insert(pos + 1, END)
 
 probability_table = {}
-for word in set(words):
-    next_words, next_words_indices = [], []
-    for index, string in enumerate(words):
-        if string == word:
-            if index == len(words) - 1:
-                pass
-            else:
-                next_words_indices.append(index + 1)
-    
-    for index in next_words_indices:
-        next_words.append(words[index])
-    probability_table[word] = next_words
+for index, word in enumerate(words):
+    if index < len(words) - 1:
+        if word in probability_table:
+            probability_table[word].append(words[index + 1])
+        else:
+            probability_table[word] = [words[index + 1]]
